@@ -6,8 +6,25 @@ class CartScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       body: SafeArea(
-          child: Container(
-        color: Colors.yellow,
+          child: ListView(
+        shrinkWrap: true,
+        scrollDirection: Axis.vertical,
+        padding: EdgeInsets.all(20),
+        children: [
+          SizedBox(
+            height: 20,
+          ),
+          Text("Order",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold)),
+          Container(
+            height: 250,
+            width: 100,
+            color: Colors.yellow,
+          )
+        ],
       )),
     );
   }

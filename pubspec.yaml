@@ -26,8 +26,8 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_svg: ^0.22.0
+  get: ^4.6.5
   intl: ^0.17.0
-
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -3,6 +3,7 @@ import 'package:flutter_coffeeapp/screen/Cart/cart.dart';
 import 'package:flutter_coffeeapp/widget/coffee_card.dart';
 import 'package:flutter_coffeeapp/widget/special_coffee_card.dart';
 import '../../widget/coffee_details_page.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key}) : super(key: key);
@@ -155,8 +156,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           BottomNavigationBarItem(
               icon: InkWell(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => CartScreen()));
+                    Get.to(() => CartScreen());
                   },
                   child: Icon(Icons.assignment)),
               label: ""),
