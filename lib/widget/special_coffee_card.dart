@@ -1,28 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_coffeeapp/models/Product_spesial.dart';
 
 class SpecialCoffeeCard extends StatelessWidget {
-  List<String> specialImages = [
-    "images/biji.JPG",
-    "images/vss.JPG",
-    "images/leci.png"
-  ];
-
-  List<String> coffeeName = ["Manu Signature", "V60", "Lychee Tea"];
-
-  List<String> ingredients = [
-    "Engrekang & Mandailing\nArabica",
-    "Manual Brew",
-    "Dengan Buah Segar"
-  ];
-
-  List<int> price = [98000, 26000, 25000];
-
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
         shrinkWrap: true,
-        itemCount: specialImages.length,
+        itemCount: demo_products.length,
         itemBuilder: (context, index) {
           return Column(
             children: [
@@ -40,7 +25,7 @@ class SpecialCoffeeCard extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: Colors.blue,
                           image: DecorationImage(
-                              image: AssetImage(specialImages[index]),
+                              image: AssetImage(demo_products[index].image),
                               fit: BoxFit.cover),
                           borderRadius: BorderRadius.circular(20)),
                     ),
@@ -52,7 +37,7 @@ class SpecialCoffeeCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          coffeeName[index],
+                          demo_products[index].title,
                           style: TextStyle(
                             fontSize: 16,
                             color: Colors.white,
@@ -62,7 +47,7 @@ class SpecialCoffeeCard extends StatelessWidget {
                           height: 6,
                         ),
                         Text(
-                          ingredients[index],
+                          demo_products[index].ingre,
                           style:
                               TextStyle(color: Color(0xff919293), fontSize: 12),
                         ),
@@ -86,7 +71,7 @@ class SpecialCoffeeCard extends StatelessWidget {
                                           locale: 'id',
                                           symbol: "",
                                           decimalDigits: 0)
-                                      .format(price[index]),
+                                      .format(demo_products[index].price),
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 20,

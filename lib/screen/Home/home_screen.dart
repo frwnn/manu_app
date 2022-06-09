@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_coffeeapp/coffee_card.dart';
-import 'package:flutter_coffeeapp/special_coffee_card.dart';
-
-import 'coffee_details_page.dart';
+import 'package:flutter_coffeeapp/screen/Cart/cart.dart';
+import 'package:flutter_coffeeapp/widget/coffee_card.dart';
+import 'package:flutter_coffeeapp/widget/special_coffee_card.dart';
+import '../../widget/coffee_details_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key}) : super(key: key);
@@ -150,8 +150,17 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         showUnselectedLabels: false,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.shopping_bag), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.notifications), label: ""),
+          // BottomNavigationBarItem(icon: Icon(Icons.), label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.shopping_basket), label: ""),
+          BottomNavigationBarItem(
+              icon: InkWell(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => CartScreen()));
+                  },
+                  child: Icon(Icons.assignment)),
+              label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,

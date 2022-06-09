@@ -1,9 +1,12 @@
 import 'package:blurrycontainer/blurrycontainer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_coffeeapp/models/Product.dart';
+import 'package:intl/intl.dart';
 
 class CoffeeDetailsPage extends StatelessWidget {
-  const CoffeeDetailsPage({Key key}) : super(key: key);
+  const CoffeeDetailsPage({Key key, this.product}) : super(key: key);
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +25,7 @@ class CoffeeDetailsPage extends StatelessWidget {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(25),
                         image: DecorationImage(
-                            image: AssetImage("images/eskopi.JPG"),
+                            image: AssetImage(product.image),
                             fit: BoxFit.cover)),
                   ),
                   Positioned(
@@ -43,7 +46,7 @@ class CoffeeDetailsPage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Es Manu Kopi",
+                                product.title,
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 20,
@@ -53,7 +56,7 @@ class CoffeeDetailsPage extends StatelessWidget {
                                 height: 10,
                               ),
                               Text(
-                                "With Oat Milk",
+                                product.ingre,
                                 style: TextStyle(
                                   color: Color(0xff919296),
                                   fontSize: 12,
@@ -301,7 +304,11 @@ class CoffeeDetailsPage extends StatelessWidget {
                                       color: Color(0xffd17842), fontSize: 21),
                                 ),
                                 Text(
-                                  " 21.000",
+                                  NumberFormat.currency(
+                                          locale: 'id',
+                                          symbol: "",
+                                          decimalDigits: 0)
+                                      .format(product.price),
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 21),
                                 )
